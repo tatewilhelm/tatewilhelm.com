@@ -8,7 +8,7 @@ export default function About() {
     return (
         <div className="About">
             <div className="About-body">
-                <body>t
+                <body>
                     <div className="About-content">
                         <Link to="/" className="Back"><p>&lt;back to home&gt;</p></Link>
                         <TypeAnimation

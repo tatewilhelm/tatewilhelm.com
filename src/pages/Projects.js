@@ -6,12 +6,8 @@ import Raycaster from './images/raycaster.png'
 import Riscv from './images/riscv.png'
 import Ndlessapps from './images/ndlessapps.png'
 import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
+  Link
 } from "react-router-dom";
-import { alignProperty } from "@mui/material/styles/cssUtils"
 
 export default function Projects() {
     return (
