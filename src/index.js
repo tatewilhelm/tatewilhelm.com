@@ -1,8 +1,27 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Home from './pages/Home';
+import { BrowserRouter, Route, Routes, ActionFunction, useLocation} from 'react-router-dom'
+import Projects from './pages/Projects';
+import About from './pages/About'
+import Resume from './pages/Resume'
+import { AnimatePresence } from 'framer-motion';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AnimatePresence mode='wait'>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      </AnimatePresence>
+    </BrowserRouter>
+  );
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,8 +29,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
