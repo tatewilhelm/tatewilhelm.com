@@ -7,6 +7,9 @@ import Projects from './pages/Projects';
 import About from './pages/About'
 import { AnimatePresence } from 'framer-motion';
 
+const reload = () => window.location.reload();
+
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,6 +18,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
+          <Route path="/wadeinator" onEnter={reload}/>
         </Routes>
       </AnimatePresence>
     </BrowserRouter>

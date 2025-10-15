@@ -26,7 +26,7 @@ export default function About() {
                             </div>
                         </div>
                         <div className="Description">
-                            <p>I'm a nerdy kid who hails from the almighty (and extremely flat) Texas Panhandle. I have a passion for Computer Science and Robotics. I specifically wish to study in the field of Integrated Systems, such as programming robots or other electronics. For now though, I develop websites for local businesses as a part of my company. I actively provide services to the businesses and residents of my community. I have worked on things as simple as setting a TV up to creating and installing the IT infastructure for an entire hotel.</p>
+                            <p>I'm a nerdy kid who hails from the almighty (and extremely flat) Texas Panhandle. I have a passion for Computer Science and Robotics. I specifically wish to study in the field of Machine Learning. For now though, I develop websites for local businesses as a part of my company. I actively provide services to the businesses and residents of my community. I have worked on things as simple as setting a TV up to creating and installing the IT infastructure for an entire hotel.</p>
                         </div>
 
                         <div className="Description">
