@@ -19,16 +19,12 @@ export default function Projects() {
                 <Link to="/" className="Back"><p>&lt;back to home&gt;</p></Link>
 
                     <h1>Projects</h1>
-                    <ProjectA title="FTC Layer" 
-                    description="A library I made that makes programming robots using the FTC SDK simpler, and more beginner-friendly. Also includes localization using Three Wheel odometry." 
-                    imageUrl={FTCLayer} 
-                    githubUrl = "https://github.com/ftc17191/FTCLayer" 
-                    tryMeUrl="https://ftclayer-docs.pages.dev/"/>
-                    <ProjectB title="Bipedal Robot / Inverse Kinematics Experiment" 
+                  
+                    {/* <ProjectB title="Bipedal Robot / Inverse Kinematics Experiment" 
                     description="An experiment into the more complex side of Control Theory. I learned Inverse Kinematics from this experiment. A desmos demo I made is available using the 'Try Me' button. " 
                     imageUrl={Bipedal} 
-                    githubUrl = "https://github.com/tatewilhelm/billythebiped"
-                    tryMeUrl="https://www.desmos.com/calculator/sgyincfbew"/>
+                    // githubUrl = "https://github.com/tatewilhelm/billythebiped"
+                    tryMeUrl="https://www.desmos.com/calculator/sgyincfbew"/> */}
                     <ProjectA title="RISC-V Virtual Machine"
                     description="My current work in progress is my RISC-V VM Software. I hope to be able to run a basic Arch Linux install on the VM by the time I'm finished with the project."
                     imageUrl={Riscv}/>
@@ -45,7 +41,13 @@ export default function Projects() {
                     description="A index of apps for the Ndless loader for TI Nspire calculators." 
                     imageUrl={Ndlessapps} 
                     githubUrl = "https://github.com/tatewilhelm/chip8emu"
-                    tryMeUrl="https://ndlessapps.org/"/>
+                    // tryMeUrl="https://ndlessapps.org/"
+                    />
+                    <ProjectA title="FTC Layer" 
+                    description="A library I made that makes programming robots using the FTC SDK simpler, and more beginner-friendly. Also includes localization using Three Wheel odometry." 
+                    imageUrl={FTCLayer} 
+                    githubUrl = "https://github.com/ftc17191/FTCLayer" 
+                    tryMeUrl="https://ftclayer-docs.pages.dev/"/>
 
                 </div>
             </body>
