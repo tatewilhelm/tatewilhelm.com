@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wadeinator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .counter {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        .log {
+            max-height: 400px;
+            overflow-y: auto;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .counter-image {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Wadeinator</h1>
+    <p id="status">Press the button to start the Wadeinator!</p>
+    <button id="startButton">Start</button>
+    <button id="stopButton" disabled>Stop</button>
+
+    <div class="counter">Image refreshes: <span id="counter">0</span></div>
+    <div class="counter-image">
+        <img id="counterImage" src="https://hitwebcounter.com/counter/counter.php?page=7806425&style=0025&nbdigits=5&type=page&initCount=0" alt="Hit Counter">
+    </div>
+    <div class="log" id="log"></div>
+
+    <script>
+        let counter = 0;
+        let waitTime = 1.0; // Initial wait time in seconds
+        let intervalId;
+
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const counterElement = document.getElementById('counter');
+        const logElement = document.getElementById('log');
+        const statusElement = document.getElementById('status');
+        const counterImage = document.getElementById('counterImage');
+
+        startButton.addEventListener('click', startWadeinator);
+        stopButton.addEventListener('click', stopWadeinator);
+
+        function logMessage(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logElement.appendChild(logEntry);
+            logElement.scrollTop = logElement.scrollHeight; // Auto-scroll to the bottom
+        }
+
+        async function refreshCounterImage() {
+            const randomWait = Math.random() * waitTime * 1000; // Random wait time between 0 and waitTime
+            await new Promise(resolve => setTimeout(resolve, randomWait));
+            counterImage.src = `https://hitwebcounter.com/counter/counter.php?page=7806425&style=0025&nbdigits=5&type=page&initCount=0&random=${new Date().getTime()}`;
+            counter++;
+            counterElement.textContent = counter;
+
+            // Check if image failed to load (possible rate limit)
+            counterImage.onerror = () => {
+                logMessage(`Rate limit detected. Increasing wait time to ${(waitTime + 0.1).toFixed(1)} seconds.`);
+                waitTime += 0.1; // Increase wait time by 0.1 seconds
+            };
+
+            logMessage(`Image refreshed #${counter} after waiting ${(randomWait / 1000).toFixed(2)} seconds.`);
+        }
+
+        function startWadeinator() {
+            counter = 0;
+            waitTime = 1.0; // Reset wait time on start
+            counterElement.textContent = counter;
+            logElement.innerHTML = '';
+            statusElement.textContent = 'The Wadeinator is running...';
+            startButton.disabled = true;
+            stopButton.disabled = false;
+            intervalId = setInterval(refreshCounterImage, (waitTime + 1) * 1000); // Ensure proper delay management
+        }
+
+        function stopWadeinator() {
+            clearInterval(intervalId);
+            statusElement.textContent = 'The Wadeinator is stopped.';
+            startButton.disabled = false;
+            stopButton.disabled = true;
+        }
+    </script>
+</body>
+</html>
