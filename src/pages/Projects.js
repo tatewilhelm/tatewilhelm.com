@@ -1,6 +1,6 @@
 import "./Projects.css"
 import FTCLayer from "./images/ftclayer.png"
-import Bipedal from "./images/bipedal.png"
+// import Bipedal from "./images/bipedal.png"
 import Chip8 from "./images/chip8.png"
 import Raycaster from './images/raycaster.png'
 import Riscv from './images/riscv.png'
@@ -20,11 +20,7 @@ export default function Projects() {
 
                     <h1>Projects</h1>
                   
-                    {/* <ProjectB title="Bipedal Robot / Inverse Kinematics Experiment" 
-                    description="An experiment into the more complex side of Control Theory. I learned Inverse Kinematics from this experiment. A desmos demo I made is available using the 'Try Me' button. " 
-                    imageUrl={Bipedal} 
-                    // githubUrl = "https://github.com/tatewilhelm/billythebiped"
-                    tryMeUrl="https://www.desmos.com/calculator/sgyincfbew"/> */}
+                   
                     <ProjectA title="RISC-V Virtual Machine"
                     description="My current work in progress is my RISC-V VM Software. I hope to be able to run a basic Arch Linux install on the VM by the time I'm finished with the project."
                     imageUrl={Riscv}/>
@@ -40,8 +36,8 @@ export default function Projects() {
                     <ProjectB title="Ndless Apps" 
                     description="A index of apps for the Ndless loader for TI Nspire calculators." 
                     imageUrl={Ndlessapps} 
-                    githubUrl = "https://github.com/tatewilhelm/chip8emu"
-                    // tryMeUrl="https://ndlessapps.org/"
+                    githubUrl = "https://github.com/tatewilhelm/ndlessapps"
+                    tryMeUrl="https://ndlessapps.org/"
                     />
                     <ProjectA title="FTC Layer" 
                     description="A library I made that makes programming robots using the FTC SDK simpler, and more beginner-friendly. Also includes localization using Three Wheel odometry." 
