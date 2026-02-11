@@ -52,7 +52,7 @@ function ButtonBar() {
       <Link to="/projects">
         <button id="projects" className="Button" style={{ cursor: 'pointer' }}>Projects</button>
       </Link>
-      <a href="./TateWilhelmResume.pdf" target="_blank">
+      <a href="./TateWilhelmResumeT.pdf" target="_blank">
       <button id="resume" className="Button" style={{ cursor: 'pointer' }}>Resume</button>
       </a>
       <Link to="/gallery">
