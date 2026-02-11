@@ -1,7 +1,5 @@
 import "./Gallery.css";
-import React from "react";
 import { Link } from "react-router-dom";
-import { TypeAnimation } from "react-type-animation";
 import { MasonryPhotoAlbum } from "react-photo-album";
 import "react-photo-album/masonry.css";
 import photos from "./Photos";

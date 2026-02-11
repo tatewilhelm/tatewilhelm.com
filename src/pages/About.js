@@ -1,6 +1,5 @@
 import "./About.css";
 import profile from "./images/profile.jpg"
-import React from "react";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import "react-photo-album/masonry.css";
