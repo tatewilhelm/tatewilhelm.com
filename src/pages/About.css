@@ -1,5 +1,6 @@
 .About {
   text-align: center;
+  background-color: #1a1f16;
 }
 
 .About-body {
@@ -10,21 +11,10 @@
 
 }
 
-.About-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
-  margin: auto;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-
 .Back {
   text-decoration: none;
   color: aliceblue;
-  text-align: left;
+  justify-content: center;
   align-items: start;
 }
 

@@ -1,9 +1,9 @@
 .Home {
   text-align: center;
+    background-color: #1a1f16;
 }
 
 .Home-body {
-  background-color: #1a1f16;
   font-size: calc(10px + 2vmin);
   color: white;
 }

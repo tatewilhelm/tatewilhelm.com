@@ -4,6 +4,8 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
 
+
+
 export default function Home() {
   return (
 
@@ -54,9 +56,9 @@ function ButtonBar() {
       <a href="./TateWilhelmResume.pdf" target="_blank">
       <button id="resume" className="Button" style={{ cursor: 'pointer' }}>Resume</button>
       </a>
-      {/* <Link to="/blog">
-        <button id="projects" className="Button" style={{ cursor: 'pointer' }}>Blog</button>
-      </Link> */}
+      <Link to="/gallery">
+        <button id="gallery" className="Button" style={{ cursor: 'pointer' }}>Gallery</button>
+      </Link>
     </div>
   );
 }

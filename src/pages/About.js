@@ -3,7 +3,10 @@ import profile from "./images/profile.jpg"
 import React from "react";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+import { MasonryPhotoAlbum } from "react-photo-album";
+import "react-photo-album/masonry.css";
 
+import photos from "./Photos";
 export default function About() {
     return (
         <div className="About">
@@ -26,17 +29,16 @@ export default function About() {
                             </div>
                         </div>
                         <div className="Description">
-                            <p>I'm a nerdy kid who hails from the almighty (and extremely flat) Texas Panhandle. I have a passion for Computer Science and Robotics. I specifically wish to study in the field of Machine Learning. For now though, I develop websites for local businesses as a part of my company. I actively provide services to the businesses and residents of my community. I have worked on things as simple as setting a TV up to creating and installing the IT infastructure for an entire hotel.</p>
+                            <p>I'm a High School Senior who hails from the almighty (and extremely flat) Texas Panhandle. I will attend MIT starting the fall of 2026. I have a passion for Computer Science, Robotics, and AI. For now though, I develop websites for local businesses as a part of my company. I actively provide services to the businesses and residents of my community. I have worked on things as simple as setting a TV up to creating and installing the IT infastructure for an entire hotel.</p>
                         </div>
 
                         <div className="Description">
-                            <p>I compete in my state's computer science competitions, and I have made it to state every year I've competed. I also compete in FTC Robotics, and I am the lead programmer for my school's robotics program. Aswell as school robotics, I teach fundamentals of robotics to Elementary kids every year in a 6 week boot camp I run through my local 4-H. I also serve as a Texas 4-H STEM Ambassador, where I was selected to manage the video production teams of the State Texas 4-H Assemblies. For more info on what I do, check out my resume on the home page.</p>
+                            <p>I compete in my state's computer science competitions, and I have made it to state every year I've competed. This past year I placed 5th in state. I also compete in FTC Robotics, and I am the lead programmer for my school's robotics program. Aswell as school robotics, I teach fundamentals of robotics to Elementary kids every year in a 6 week boot camp I run through my local 4-H. I also serve as a Texas 4-H STEM Ambassador, where I was selected to manage the video production teams of the State Texas 4-H Assemblies. For more info on what I do, check out my resume on the home page.</p>
                         </div>
 
                         <div className="Description">
                             <p>If are interested in contacting me, you can email me at t8wilhelm(at)gmail.com.</p>
                         </div>
-
                     </div>
                 </body>
             </div>
