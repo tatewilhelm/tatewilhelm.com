@@ -3,10 +3,8 @@ import profile from "./images/profile.jpg"
 import React from "react";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
-import { MasonryPhotoAlbum } from "react-photo-album";
 import "react-photo-album/masonry.css";
 
-import photos from "./Photos";
 export default function About() {
     return (
         <div className="About">
