@@ -4,9 +4,11 @@ import os
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 IMAGES_DIR = PROJECT_ROOT / "public" / "photos"
+RESIZED_DIR = PROJECT_ROOT / "public" / "photos" / "resized"
 OUTPUT_FILE = PROJECT_ROOT / "src" / "pages" / "Photos.js"
 
 VALID_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+MAX_DIMENSION = 1200  # Maximum width or height
 
 # Find the EXIF Orientation tag ID (usually 274)
 ORIENTATION_TAG = next(
@@ -27,9 +29,45 @@ def get_display_size(path: Path):
 
         return width, height
 
+def resize_image(input_path: Path, output_path: Path):
+    """Resize image to max dimension while maintaining aspect ratio and EXIF orientation."""
+    with Image.open(input_path) as img:
+        # Apply EXIF orientation
+        try:
+            exif = img.getexif()
+            if exif:
+                orientation = exif.get(ORIENTATION_TAG)
+                if orientation == 3:
+                    img = img.rotate(180, expand=True)
+                elif orientation == 6:
+                    img = img.rotate(270, expand=True)
+                elif orientation == 8:
+                    img = img.rotate(90, expand=True)
+        except Exception:
+            pass  # If EXIF processing fails, continue without rotation
+        
+        # Calculate new dimensions
+        width, height = img.size
+        if width > MAX_DIMENSION or height > MAX_DIMENSION:
+            if width > height:
+                new_width = MAX_DIMENSION
+                new_height = int(height * (MAX_DIMENSION / width))
+            else:
+                new_height = MAX_DIMENSION
+                new_width = int(width * (MAX_DIMENSION / height))
+            
+            img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+        
+        # Save with optimization
+        img.save(output_path, optimize=True, quality=85)
+        return img.size
+
 def main():
     if not IMAGES_DIR.exists():
         raise SystemExit(f"Image directory not found: {IMAGES_DIR}")
+
+    # Create resized directory if it doesn't exist
+    RESIZED_DIR.mkdir(exist_ok=True)
 
     entries = []
 
@@ -40,8 +78,19 @@ def main():
         if ext not in VALID_EXTENSIONS or not path.is_file():
             continue
 
-        width, height = get_display_size(path)
-        public_path = f"/photos/{filename}"
+        # Create resized version
+        resized_filename = f"resized_{filename}"
+        resized_path = RESIZED_DIR / resized_filename
+        
+        # Only resize if the resized version doesn't exist or is older than the original
+        if not resized_path.exists() or resized_path.stat().st_mtime < path.stat().st_mtime:
+            print(f"Resizing {filename}...")
+            width, height = resize_image(path, resized_path)
+        else:
+            print(f"Using cached {resized_filename}")
+            width, height = get_display_size(resized_path)
+
+        public_path = f"/photos/resized/{resized_filename}"
 
         entries.append(
             {
