@@ -17,6 +17,16 @@
   justify-content: center;
   align-items: start;
 }
+.About-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
 .Top-box {
   display: flex;

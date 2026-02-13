@@ -12,6 +12,7 @@ export default function Gallery() {
                         <div className="Gallery-content">
                             <Link to="/" className="Back"><p className="Back">&lt;back to home&gt;</p></Link>
                             <h1>Gallery</h1>
+                            <p>Here's some photos I've taken.</p>
                             <MasonryPhotoAlbum photos={photos} />
                         </div>
                 </div>
